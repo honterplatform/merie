@@ -35,6 +35,8 @@
    Reset & base
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+button, input, a { -webkit-appearance: none; -moz-appearance: none; appearance: none; color: inherit; }
+a { text-decoration: none; }
 
 body {
   font-family: 'Author', sans-serif;
@@ -59,7 +61,7 @@ body {
 
 .modal {
   background: #fff;
-  width: 40vw; max-height: 88vh;
+  width: 82vw; max-width: 1200px; max-height: 88vh;
   border-radius: 12px;
   display: flex; flex-direction: column;
   overflow: hidden;
@@ -127,7 +129,7 @@ body {
 .col-left, .col-right {
   flex: 1;
   overflow-y: auto;
-  padding: 24px;
+  padding: 24px 16px;
 }
 .col-left {
   border-right: 0.5px solid rgba(0,0,0,0.15);
@@ -746,7 +748,7 @@ body {
 /* ============================================================
    Responsive — mobile
    ============================================================ */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .modal {
     width: 100vw;
     max-height: 100vh;
@@ -755,6 +757,12 @@ body {
   }
   .modal-body {
     flex-direction: column;
+  }
+  .measure-section, .measure-heading {
+    display: none;
+  }
+  .col-left {
+    flex: none;
   }
   .col-left {
     border-right: none;
@@ -768,8 +776,7 @@ body {
     padding: 14px 16px;
   }
   .measure-input-row {
-    flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
   .chat-area {
     max-height: 240px;
@@ -908,6 +915,8 @@ body {
                   <span class="measure-input-unit">cm</span>
                 </div>
               </div>
+            </div>
+            <div class="measure-input-row">
               <div class="measure-input-group">
                 <label class="measure-input-label" id="inputWaistLabel"></label>
                 <div class="measure-input-wrap">
