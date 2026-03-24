@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merie - Jumpsuit Size Guide</title>
+<style>
+/* ============================================================
+   @font-face — Author family
+   Swap filenames here if font files change.
+   ============================================================ */
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/Author-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/Author-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Author';
+  src: url('/fonts/Author-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  color: #000;
+  background: #f0f0f0; /* change to transparent for iframe/production */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   Backdrop & modal shell
+   ============================================================ */
+.backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 9999;
+}
+.backdrop.open { opacity: 1; visibility: visible; }
+
+.modal {
+  background: #fff;
+  width: 40vw; max-height: 88vh;
+  border-radius: 12px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transform: translateY(24px);
+  transition: transform 0.2s ease;
+}
+.backdrop.open .modal { transform: translateY(0); }
+
+/* ============================================================
+   Top bar
+   ============================================================ */
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+.topbar-brand {
+  height: 20px;
+  display: block;
+}
+.topbar-right {
+  display: flex; align-items: center; gap: 16px;
+}
+.lang-toggle {
+  display: flex; gap: 2px;
+}
+.lang-btn {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  background: #fff;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.lang-btn:hover { border-color: rgba(0,0,0,0.35); }
+.lang-btn.active {
+  background: #000; color: #fff;
+  border-color: #000;
+}
+.close-btn {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  background: none; border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+}
+
+/* ============================================================
+   Two-column body
+   ============================================================ */
+.modal-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  min-height: 0;
+}
+.col-left, .col-right {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+}
+.col-left {
+  border-right: 0.5px solid rgba(0,0,0,0.15);
+}
+
+/* ============================================================
+   Section labels
+   ============================================================ */
+.section-label {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(0,0,0,0.5);
+  margin-bottom: 16px;
+}
+
+/* ============================================================
+   Size table
+   ============================================================ */
+.size-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 28px;
+}
+.size-table th {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(0,0,0,0.45);
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.15);
+}
+.size-table td {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 10px;
+  border-bottom: 0.5px solid rgba(0,0,0,0.08);
+  transition: background 0.2s ease;
+}
+.size-table td:first-child {
+  font-weight: 500;
+  font-size: 15px;
+}
+.size-table tr.highlighted td {
+  background: #f5f5f5;
+}
+
+/* ============================================================
+   How to measure
+   ============================================================ */
+.measure-section { margin-top: 8px; }
+.measure-heading {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.measure-row {
+  display: flex; align-items: flex-start; gap: 10px;
+  margin-bottom: 12px;
+}
+.measure-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  position: relative;
+  top: 1px;
+}
+.dot-pink   { background: #f5f5f5; }
+.dot-green  { background: #f5f5f5; }
+.dot-blue   { background: #f5f5f5; }
+.dot-amber  { background: #f5f5f5; }
+.measure-row-text strong {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+}
+.measure-row-text span {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(0,0,0,0.6);
+  display: block;
+  margin-top: 2px;
+}
+
+/* ============================================================
+   Mode toggle
+   ============================================================ */
+.mode-toggle {
+  display: flex;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.mode-btn {
+  flex: 1;
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 10px 12px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  text-align: center;
+}
+.mode-btn:first-child { border-right: 0.5px solid rgba(0,0,0,0.15); }
+.mode-btn.active { background: #000; color: #fff; }
+
+/* ============================================================
+   Describe mode
+   ============================================================ */
+.describe-panel, .photo-panel { display: none; }
+.describe-panel.active, .photo-panel.active { display: flex; flex-direction: column; flex: 1; min-height: 0; }
+
+.describe-heading {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+.describe-sub {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(0,0,0,0.5);
+  margin-bottom: 16px;
+}
+
+/* Measurement inputs */
+.measure-inputs {
+  margin-bottom: 12px;
+}
+.measure-input-row {
+  display: flex; gap: 10px;
+  margin-bottom: 10px;
+}
+.measure-input-group {
+  flex: 1;
+}
+.measure-input-label {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(0,0,0,0.5);
+  display: block;
+  margin-bottom: 6px;
+}
+.measure-input-wrap {
+  display: flex; align-items: center;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+.measure-input-wrap:focus-within {
+  border-color: rgba(0,0,0,0.35);
+}
+.measure-input-wrap input {
+  flex: 1;
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 10px 12px;
+  border: none;
+  outline: none;
+  width: 100%;
+  min-width: 0;
+}
+.measure-input-unit {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(0,0,0,0.35);
+  padding-right: 12px;
+  flex-shrink: 0;
+}
+.find-size-btn {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  width: 100%;
+  padding: 12px;
+  background: #000; color: #fff;
+  border: none; border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.find-size-btn:hover { opacity: 0.8; }
+
+.divider-or {
+  display: flex; align-items: center;
+  margin: 16px 0;
+  gap: 12px;
+}
+.divider-or::before, .divider-or::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: rgba(0,0,0,0.12);
+}
+.divider-or span {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(0,0,0,0.35);
+}
+
+/* Chips */
+.chips {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: 16px;
+}
+.chip {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  padding: 7px 14px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+.chip:hover { border-color: rgba(0,0,0,0.35); }
+
+/* Chat area */
+.chat-area {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 120px;
+  max-height: 320px;
+}
+.bubble {
+  max-width: 88%;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.bubble-ai {
+  align-self: flex-start;
+  background: #f5f5f5;
+}
+.bubble-user {
+  align-self: flex-end;
+  background: #f5f5f5;
+  color: #000;
+}
+.bubble-label {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(0,0,0,0.4);
+  margin-bottom: 4px;
+}
+
+/* Size card */
+.size-card {
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 4px;
+}
+.size-card-letter {
+  font-family: 'Author', sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.size-card-note {
+  margin-bottom: 8px;
+}
+.size-card-note-label {
+  font-family: 'Author', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+.size-card-note-text {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+}
+
+/* Typing indicator */
+.typing {
+  display: flex; align-items: center; gap: 4px;
+  padding: 12px 16px;
+  align-self: flex-start;
+}
+.typing-dot {
+  width: 6px; height: 6px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  animation: typingBounce 1.2s ease-in-out infinite;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.3; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Input bar */
+.input-bar {
+  display: flex; gap: 8px;
+  align-items: stretch;
+}
+.input-bar input {
+  flex: 1;
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 10px 14px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.input-bar input:focus { border-color: rgba(0,0,0,0.35); }
+.send-btn {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  padding: 10px 20px;
+  background: #000; color: #fff;
+  border: none; border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.send-btn:hover { opacity: 0.8; }
+.footer-note {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: rgba(0,0,0,0.35);
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ============================================================
+   Photo mode
+   ============================================================ */
+.upload-zone {
+  border: 1.5px dashed rgba(0,0,0,0.2);
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.upload-zone:hover { border-color: rgba(0,0,0,0.4); }
+.upload-zone svg {
+  display: block;
+  margin: 0 auto 12px;
+}
+.upload-zone-title {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.upload-zone-sub {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: rgba(0,0,0,0.45);
+}
+.upload-tips {
+  margin-top: 12px;
+  text-align: center;
+  padding: 0 8px;
+}
+.upload-tips ul {
+  list-style: none;
+  padding: 0;
+}
+.upload-tips li {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: rgba(0,0,0,0.4);
+  padding: 3px 0;
+}
+.upload-zone img {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: 8px;
+}
+
+.height-row {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 16px;
+}
+.height-row label {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  white-space: nowrap;
+}
+.height-row input {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  width: 80px;
+  padding: 8px 12px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.height-row input:focus { border-color: rgba(0,0,0,0.35); }
+.unit-toggle {
+  display: flex; gap: 2px;
+}
+.unit-btn {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 6px 10px;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+.unit-btn.active { background: #000; color: #fff; border-color: #000; }
+
+.analyse-btn {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  width: 100%;
+  padding: 12px;
+  background: #000; color: #fff;
+  border: none; border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.analyse-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+.analyse-btn:not(:disabled):hover { opacity: 0.8; }
+
+/* Scan overlay */
+.scan-overlay {
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.85);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  border-radius: 12px;
+  z-index: 2;
+}
+.scan-status {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.scan-bar {
+  width: 60%; height: 2px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.scan-bar-fill {
+  height: 100%; width: 0;
+  background: #000;
+  transition: width 0.4s ease;
+}
+
+/* Photo result */
+.photo-result { display: none; }
+.photo-result.active { display: block; }
+.photo-result-size {
+  font-family: 'Author', sans-serif;
+  font-weight: 500;
+  font-size: 48px;
+  text-align: center;
+  margin-bottom: 4px;
+}
+.photo-result-confidence {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  text-align: center;
+  color: rgba(0,0,0,0.45);
+  margin-bottom: 20px;
+}
+
+.proportion-bar-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.proportion-bar-label {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  width: 80px;
+  flex-shrink: 0;
+}
+.proportion-bar-track {
+  flex: 1; height: 4px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.proportion-bar-fill {
+  height: 100%;
+  background: #000;
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+.proportion-bar-value {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  width: 50px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.photo-notes {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 0.5px solid rgba(0,0,0,0.1);
+}
+.photo-note {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: rgba(0,0,0,0.7);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+.photo-privacy {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: rgba(0,0,0,0.35);
+  margin-top: 16px;
+  text-align: center;
+}
+.tryagain-btn {
+  font-family: 'Author', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  width: 100%;
+  padding: 12px;
+  background: #fff; color: #000;
+  border: 0.5px solid rgba(0,0,0,0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: border-color 0.2s ease;
+}
+.tryagain-btn:hover { border-color: rgba(0,0,0,0.35); }
+
+/* ============================================================
+   Scrollbar styling
+   ============================================================ */
+.col-left::-webkit-scrollbar, .col-right::-webkit-scrollbar, .chat-area::-webkit-scrollbar {
+  width: 4px;
+}
+.col-left::-webkit-scrollbar-thumb, .col-right::-webkit-scrollbar-thumb, .chat-area::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.15);
+  border-radius: 2px;
+}
+/* ============================================================
+   Responsive — mobile
+   ============================================================ */
+@media (max-width: 768px) {
+  .modal {
+    width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .modal-body {
+    flex-direction: column;
+  }
+  .col-left {
+    border-right: none;
+    border-bottom: 0.5px solid rgba(0,0,0,0.15);
+    padding: 20px 16px;
+  }
+  .col-right {
+    padding: 20px 16px;
+  }
+  .topbar {
+    padding: 14px 16px;
+  }
+  .measure-input-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .chat-area {
+    max-height: 240px;
+  }
+  .chips {
+    gap: 6px;
+  }
+  .chip {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+  .size-table th, .size-table td {
+    padding: 8px 6px;
+    font-size: 12px;
+  }
+  .size-table td:first-child {
+    font-size: 14px;
+  }
+  .height-row {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar-brand {
+    height: 16px;
+  }
+  .lang-btn {
+    padding: 5px 8px;
+    font-size: 9px;
+  }
+  .describe-heading {
+    font-size: 18px;
+  }
+  .measure-heading {
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     MODAL
+     ============================================================ -->
+<div class="backdrop" id="backdrop">
+  <div class="modal" onclick="event.stopPropagation()">
+    <!-- Top bar -->
+    <div class="topbar">
+      <img class="topbar-brand" src="/public/merie.svg" alt="Merie" />
+      <div class="topbar-right">
+        <div class="lang-toggle">
+          <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+        </div>
+        <button class="close-btn" onclick="closeModal()">&#x2715;</button>
+      </div>
+    </div>
+
+    <!-- Two columns -->
+    <div class="modal-body">
+      <!-- LEFT — Size chart -->
+      <div class="col-left">
+        <div class="section-label" id="tableLabel"></div>
+        <table class="size-table">
+          <thead>
+            <tr>
+              <th id="thSize"></th>
+              <th id="thBust"></th>
+              <th id="thWaist"></th>
+              <th id="thHips"></th>
+              <th id="thUnderbust"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-size="XS"><td>XS</td><td>80–84</td><td>69–73</td><td>92–96</td><td>67–71</td></tr>
+            <tr data-size="S"><td>S</td><td>85–89</td><td>74–78</td><td>97–101</td><td>72–76</td></tr>
+            <tr data-size="M"><td>M</td><td>90–94</td><td>79–83</td><td>102–106</td><td>77–81</td></tr>
+            <tr data-size="L"><td>L</td><td>95–99</td><td>84–88</td><td>107–111</td><td>82–86</td></tr>
+          </tbody>
+        </table>
+
+        <div class="measure-section">
+          <div class="measure-heading" id="measureHeading"></div>
+
+          <div class="measure-row">
+            <div class="measure-dot dot-pink"></div>
+            <div class="measure-row-text">
+              <strong id="mBustLabel"></strong>
+              <span id="mBustText"></span>
+            </div>
+          </div>
+          <div class="measure-row">
+            <div class="measure-dot dot-green"></div>
+            <div class="measure-row-text">
+              <strong id="mUnderbustLabel"></strong>
+              <span id="mUnderbustText"></span>
+            </div>
+          </div>
+          <div class="measure-row">
+            <div class="measure-dot dot-blue"></div>
+            <div class="measure-row-text">
+              <strong id="mWaistLabel"></strong>
+              <span id="mWaistText"></span>
+            </div>
+          </div>
+          <div class="measure-row">
+            <div class="measure-dot dot-amber"></div>
+            <div class="measure-row-text">
+              <strong id="mHipsLabel"></strong>
+              <span id="mHipsText"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — Modes -->
+      <div class="col-right">
+        <div class="mode-toggle">
+          <button class="mode-btn active" data-mode="describe" onclick="setMode('describe')" id="modeDescribe"></button>
+          <button class="mode-btn" data-mode="photo" onclick="setMode('photo')" id="modePhoto"></button>
+        </div>
+
+        <!-- DESCRIBE MODE -->
+        <div class="describe-panel active" id="describePanel">
+          <div class="describe-heading" id="describeHeading"></div>
+          <div class="describe-sub" id="describeSub"></div>
+
+          <!-- Measurement inputs -->
+          <div class="measure-inputs" id="measureInputs">
+            <div class="measure-input-row">
+              <div class="measure-input-group">
+                <label class="measure-input-label" id="inputBustLabel"></label>
+                <div class="measure-input-wrap">
+                  <input type="number" id="inputBust" placeholder="86" />
+                  <span class="measure-input-unit">cm</span>
+                </div>
+              </div>
+              <div class="measure-input-group">
+                <label class="measure-input-label" id="inputWaistLabel"></label>
+                <div class="measure-input-wrap">
+                  <input type="number" id="inputWaist" placeholder="74" />
+                  <span class="measure-input-unit">cm</span>
+                </div>
+              </div>
+              <div class="measure-input-group">
+                <label class="measure-input-label" id="inputHipsLabel"></label>
+                <div class="measure-input-wrap">
+                  <input type="number" id="inputHips" placeholder="98" />
+                  <span class="measure-input-unit">cm</span>
+                </div>
+              </div>
+            </div>
+            <button class="find-size-btn" id="findSizeBtn" onclick="sendMeasurements()"></button>
+          </div>
+
+          <div class="divider-or"><span id="dividerOrText"></span></div>
+
+          <div class="chips" id="chipsContainer"></div>
+
+          <div class="chat-area" id="chatArea"></div>
+
+          <div class="input-bar">
+            <input type="text" id="chatInput" />
+            <button class="send-btn" id="sendBtn" onclick="sendMessage()"></button>
+          </div>
+          <div class="footer-note" id="footerNote"></div>
+        </div>
+
+        <!-- PHOTO MODE -->
+        <div class="photo-panel" id="photoPanel">
+          <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+            <div class="upload-zone-title" id="uploadTitle"></div>
+            <div class="upload-zone-sub" id="uploadSub"></div>
+            <div class="upload-tips" id="uploadTips"></div>
+          </div>
+          <input type="file" id="fileInput" accept="image/*" style="display:none" />
+
+          <div class="height-row">
+            <label id="heightLabel"></label>
+            <input type="number" id="heightInput" placeholder="168" />
+            <div class="unit-toggle">
+              <button class="unit-btn active" data-unit="cm" onclick="setUnit('cm')">CM</button>
+              <button class="unit-btn" data-unit="ft" onclick="setUnit('ft')">FT</button>
+            </div>
+          </div>
+
+          <button class="analyse-btn" id="analyseBtn" disabled onclick="analysePhoto()"></button>
+
+          <div class="photo-result" id="photoResult">
+            <div class="photo-result-size" id="photoSize"></div>
+            <div class="photo-result-confidence" id="photoConfidence"></div>
+            <div id="proportionBars"></div>
+            <div class="photo-notes" id="photoNotes"></div>
+            <div class="photo-privacy" id="photoPrivacy"></div>
+            <button class="tryagain-btn" id="tryAgainBtn" onclick="resetPhoto()"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// Strings — ES / EN
+// ============================================================
+const STRINGS = {
+  es: {
+    tableLabel: 'Tabla de tallas',
+    thSize: 'Talla',
+    thBust: 'Busto',
+    thWaist: 'Cintura',
+    thHips: 'Caderas',
+    thUnderbust: 'Bajo busto',
+    measureHeading: 'Cómo medir',
+    mBustLabel: 'Busto',
+    mBustText: 'Mide alrededor de la parte más ancha del pecho.',
+    mUnderbustLabel: 'Bajo busto',
+    mUnderbustText: 'Mide justo debajo del busto, donde termina la banda del sujetador.',
+    mWaistLabel: 'Cintura',
+    mWaistText: 'Mide alrededor de la parte más estrecha del torso.',
+    mHipsLabel: 'Caderas',
+    mHipsText: 'Mide alrededor de la parte más ancha de las caderas.',
+    modeDescribe: 'Descríbete',
+    modePhoto: 'Subir foto',
+    describeHeading: 'Cuéntanos sobre ti',
+    describeSub: 'Describe tu cuerpo con tus propias palabras o usa las opciones rápidas.',
+    inputBustLabel: 'Busto',
+    inputWaistLabel: 'Cintura',
+    inputHipsLabel: 'Caderas',
+    findSizeBtn: 'Encontrar mi talla',
+    dividerOr: 'o pregúntame',
+    chips: ['No tengo mis medidas', 'Suelo usar talla S', 'Mido entre S y M', 'Caderas más anchas'],
+    chatPlaceholder: 'Describe tu cuerpo, talla habitual o dudas…',
+    sendBtn: 'Enviar',
+    footerNote: 'Tu información es privada y no se almacena.',
+    aiGreeting: '¡Hola! Soy la asistente de tallas de Merie. Para encontrar tu talla ideal en jumpsuits, ¿podrías compartirme tus medidas de busto, cintura, caderas y bajo busto en cm? Si no las tienes a mano, no te preocupes, también puedo ayudarte con tu talla habitual.',
+    uploadTitle: 'Sube una foto de cuerpo completo',
+    uploadSub: 'JPG o PNG. Tu foto no se almacena ni se comparte.',
+    uploadTips: ['Foto de cuerpo completo, de cabeza a pies', 'De pie, brazos ligeramente separados del cuerpo', 'Usa ropa ajustada o ceñida', 'Buena iluminación, fondo sencillo'],
+    heightLabel: 'Altura (opcional)',
+    analyseBtn: 'Analizar',
+    scanSteps: ['Detectando proporciones…', 'Estimando medidas…', 'Calculando tu talla…'],
+    confidence: 'Estimación basada en proporciones',
+    bust: 'Busto',
+    underbust: 'Bajo busto',
+    waist: 'Cintura',
+    hips: 'Caderas',
+    photoPrivacy: 'Tu foto no se almacena ni se comparte en ningún momento.',
+    tryAgain: 'Intentar de nuevo',
+    photoNotes: [
+      'Basándonos en tus proporciones, esta talla debería sentirte cómoda y favorecedora.',
+      'Si sueles preferir un ajuste más holgado, considera subir una talla.',
+      'Recuerda que cada cuerpo es único. Esta es una estimación orientativa.'
+    ],
+    errorMessage: 'Algo salió mal con nuestra asistente. Por favor, inténtalo de nuevo en un momento.'
+  },
+  en: {
+    tableLabel: 'Size chart',
+    thSize: 'Size',
+    thBust: 'Bust',
+    thWaist: 'Waist',
+    thHips: 'Hips',
+    thUnderbust: 'Underbust',
+    measureHeading: 'How to measure',
+    mBustLabel: 'Bust',
+    mBustText: 'Measure around the fullest part of your chest.',
+    mUnderbustLabel: 'Underbust',
+    mUnderbustText: 'Measure just below your bust, where the bra band sits.',
+    mWaistLabel: 'Waist',
+    mWaistText: 'Measure around the narrowest part of your torso.',
+    mHipsLabel: 'Hips',
+    mHipsText: 'Measure around the widest part of your hips.',
+    modeDescribe: 'Describe yourself',
+    modePhoto: 'Upload a photo',
+    describeHeading: 'Tell us about yourself',
+    describeSub: 'Describe your body in your own words or use the quick picks.',
+    inputBustLabel: 'Bust',
+    inputWaistLabel: 'Waist',
+    inputHipsLabel: 'Hips',
+    findSizeBtn: 'Find my size',
+    dividerOr: 'or ask me',
+    chips: ["I don't have my measurements", 'I usually wear size S', "I'm between S and M", 'Broad shoulders'],
+    chatPlaceholder: 'Describe your body, usual size or questions…',
+    sendBtn: 'Send',
+    footerNote: 'Your information is private and never stored.',
+    aiGreeting: "Hi! I'm Merie's fit assistant. To find your ideal jumpsuit size, could you share your bust, waist, hip, and underbust measurements in cm? If you don't have them handy, no worries, I can also help with your usual size.",
+    uploadTitle: 'Upload a full-body photo',
+    uploadSub: 'JPG or PNG. Your photo is never stored or shared.',
+    uploadTips: ['Full body photo, head to toe', 'Stand with arms slightly away from body', 'Wear fitted clothing', 'Good lighting, plain background'],
+    heightLabel: 'Height (optional)',
+    analyseBtn: 'Analyse',
+    scanSteps: ['Detecting proportions…', 'Estimating measurements…', 'Calculating your size…'],
+    confidence: 'Estimate based on proportions',
+    bust: 'Bust',
+    underbust: 'Underbust',
+    waist: 'Waist',
+    hips: 'Hips',
+    photoPrivacy: 'Your photo is never stored or shared.',
+    tryAgain: 'Try again',
+    photoNotes: [
+      'Based on your proportions, this size should feel comfortable and flattering.',
+      'If you usually prefer a looser fit, consider sizing up.',
+      'Remember that every body is unique. This is an orientative estimate.'
+    ],
+    errorMessage: 'Something went wrong with our assistant. Please try again in a moment.'
+  }
+};
+
+// ============================================================
+// State
+// ============================================================
+let lang = navigator.language.startsWith('en') ? 'en' : 'es';
+let currentMode = 'describe';
+let uploadedFile = null;
+let heightUnit = 'cm';
+let chatHistory = [];
+
+// ============================================================
+// Language
+// ============================================================
+function S(key) { return STRINGS[lang][key]; }
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === l));
+  applyStrings();
+}
+
+function applyStrings() {
+  document.getElementById('tableLabel').textContent = S('tableLabel');
+  document.getElementById('thSize').textContent = S('thSize');
+  document.getElementById('thBust').textContent = S('thBust');
+  document.getElementById('thWaist').textContent = S('thWaist');
+  document.getElementById('thHips').textContent = S('thHips');
+  document.getElementById('thUnderbust').textContent = S('thUnderbust');
+  document.getElementById('measureHeading').textContent = S('measureHeading');
+  document.getElementById('mBustLabel').textContent = S('mBustLabel');
+  document.getElementById('mBustText').textContent = S('mBustText');
+  document.getElementById('mUnderbustLabel').textContent = S('mUnderbustLabel');
+  document.getElementById('mUnderbustText').textContent = S('mUnderbustText');
+  document.getElementById('mWaistLabel').textContent = S('mWaistLabel');
+  document.getElementById('mWaistText').textContent = S('mWaistText');
+  document.getElementById('mHipsLabel').textContent = S('mHipsLabel');
+  document.getElementById('mHipsText').textContent = S('mHipsText');
+  document.getElementById('modeDescribe').textContent = S('modeDescribe');
+  document.getElementById('modePhoto').textContent = S('modePhoto');
+  document.getElementById('describeHeading').textContent = S('describeHeading');
+  document.getElementById('describeSub').textContent = S('describeSub');
+  document.getElementById('inputBustLabel').textContent = S('inputBustLabel');
+  document.getElementById('inputWaistLabel').textContent = S('inputWaistLabel');
+  document.getElementById('inputHipsLabel').textContent = S('inputHipsLabel');
+  document.getElementById('findSizeBtn').textContent = S('findSizeBtn');
+  document.getElementById('dividerOrText').textContent = S('dividerOr');
+  document.getElementById('chatInput').placeholder = S('chatPlaceholder');
+  document.getElementById('sendBtn').textContent = S('sendBtn');
+  document.getElementById('footerNote').textContent = S('footerNote');
+  document.getElementById('uploadTitle').textContent = S('uploadTitle');
+  document.getElementById('uploadSub').textContent = S('uploadSub');
+  document.getElementById('uploadTips').innerHTML = '<ul>' + S('uploadTips').map(t => `<li>${t}</li>`).join('') + '</ul>';
+  document.getElementById('heightLabel').textContent = S('heightLabel');
+  document.getElementById('analyseBtn').textContent = S('analyseBtn');
+  document.getElementById('photoPrivacy').textContent = S('photoPrivacy');
+  document.getElementById('tryAgainBtn').textContent = S('tryAgain');
+
+  // Chips
+  const container = document.getElementById('chipsContainer');
+  container.innerHTML = '';
+  S('chips').forEach(label => {
+    const btn = document.createElement('button');
+    btn.className = 'chip';
+    btn.textContent = label;
+    btn.onclick = () => {
+      document.getElementById('chatInput').value = label;
+      sendMessage();
+    };
+    container.appendChild(btn);
+  });
+
+  // Re-render greeting if chat is empty
+  if (chatHistory.length === 0) {
+    const chatArea = document.getElementById('chatArea');
+    chatArea.innerHTML = '';
+    addAiBubble(S('aiGreeting'));
+  }
+}
+
+// ============================================================
+// Modal open / close
+// ============================================================
+function openModal() {
+  document.getElementById('backdrop').classList.add('open');
+}
+function closeModal() {
+  document.getElementById('backdrop').classList.remove('open');
+  window.parent.postMessage({ type: 'JUMPSUIT_SIZE_GUIDE_CLOSED' }, '*');
+}
+
+document.getElementById('backdrop').addEventListener('click', closeModal);
+
+window.addEventListener('message', (e) => {
+  if (e.data?.type === 'OPEN_JUMPSUIT_SIZE_GUIDE') openModal();
+  if (e.data?.type === 'CLOSE_JUMPSUIT_SIZE_GUIDE') closeModal();
+});
+
+// ============================================================
+// Mode toggle
+// ============================================================
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  document.getElementById('describePanel').classList.toggle('active', mode === 'describe');
+  document.getElementById('photoPanel').classList.toggle('active', mode === 'photo');
+}
+
+// ============================================================
+// Chat — Describe mode
+// ============================================================
+function addAiBubble(text) {
+  const chatArea = document.getElementById('chatArea');
+  const wrapper = document.createElement('div');
+  wrapper.style.alignSelf = 'flex-start';
+
+  const label = document.createElement('div');
+  label.className = 'bubble-label';
+  label.textContent = 'Merie';
+
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble bubble-ai';
+  bubble.style.whiteSpace = 'pre-wrap';
+  bubble.textContent = text;
+
+  wrapper.appendChild(label);
+  wrapper.appendChild(bubble);
+  chatArea.appendChild(wrapper);
+  chatArea.scrollTop = chatArea.scrollHeight;
+  return wrapper;
+}
+
+function addUserBubble(text) {
+  const chatArea = document.getElementById('chatArea');
+  const bubble = document.createElement('div');
+  bubble.className = 'bubble bubble-user';
+  bubble.textContent = text;
+  chatArea.appendChild(bubble);
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+function addSizeCard(data) {
+  const chatArea = document.getElementById('chatArea');
+  const card = document.createElement('div');
+  card.className = 'size-card';
+
+  let html = `<div class="size-card-letter">${escapeHtml(data.size)}</div>`;
+  if (data.notes && data.notes.length) {
+    data.notes.forEach(n => {
+      html += `<div class="size-card-note">
+        <div class="size-card-note-label">${escapeHtml(n.label)}</div>
+        <div class="size-card-note-text">${escapeHtml(n.text)}</div>
+      </div>`;
+    });
+  }
+  card.innerHTML = html;
+  chatArea.appendChild(card);
+  chatArea.scrollTop = chatArea.scrollHeight;
+
+  // Highlight table row
+  highlightSize(data.size);
+}
+
+function highlightSize(size) {
+  document.querySelectorAll('.size-table tbody tr').forEach(tr => {
+    tr.classList.toggle('highlighted', tr.dataset.size === size);
+  });
+}
+
+function showTyping() {
+  const chatArea = document.getElementById('chatArea');
+  const typing = document.createElement('div');
+  typing.className = 'typing';
+  typing.id = 'typingIndicator';
+  typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  chatArea.appendChild(typing);
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+function removeTyping() {
+  const el = document.getElementById('typingIndicator');
+  if (el) el.remove();
+}
+
+async function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  addUserBubble(text);
+  chatHistory.push({ role: 'user', text });
+
+  showTyping();
+
+  try {
+    const res = await fetch('/api/fit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: text, language: lang, garment: 'jumpsuit' })
+    });
+
+    removeTyping();
+
+    if (!res.ok) throw new Error('API error');
+
+    const data = await res.json();
+
+    // Build full reply text including notes when no size recommendation
+    if (data.size && data.size !== '-' && data.size !== '—') {
+      addAiBubble(data.reply);
+      chatHistory.push({ role: 'ai', text: data.reply });
+      addSizeCard(data);
+    } else {
+      // No size yet — combine reply + notes into the bubble
+      let fullText = data.reply;
+      if (data.notes && data.notes.length) {
+        fullText += '\n\n' + data.notes.map(n => `${n.label}: ${n.text}`).join('\n\n');
+      }
+      addAiBubble(fullText);
+      chatHistory.push({ role: 'ai', text: fullText });
+    }
+  } catch {
+    removeTyping();
+    addAiBubble(S('errorMessage'));
+  }
+}
+
+function sendMeasurements() {
+  const bust = document.getElementById('inputBust').value.trim();
+  const waist = document.getElementById('inputWaist').value.trim();
+  const hips = document.getElementById('inputHips').value.trim();
+
+  if (!bust && !waist && !hips) return;
+
+  const parts = [];
+  if (bust) parts.push(`${S('inputBustLabel')}: ${bust} cm`);
+  if (waist) parts.push(`${S('inputWaistLabel')}: ${waist} cm`);
+  if (hips) parts.push(`${S('inputHipsLabel')}: ${hips} cm`);
+  const text = parts.join(', ');
+
+  document.getElementById('chatInput').value = text;
+  sendMessage();
+}
+
+document.getElementById('chatInput').addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+});
+
+// ============================================================
+// Photo mode
+// ============================================================
+const fileInput = document.getElementById('fileInput');
+fileInput.addEventListener('change', (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  uploadedFile = file;
+  const zone = document.getElementById('uploadZone');
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    zone.innerHTML = `<img src="${ev.target.result}" alt="Uploaded photo" />`;
+  };
+  reader.readAsDataURL(file);
+  document.getElementById('analyseBtn').disabled = false;
+});
+
+function setUnit(u) {
+  heightUnit = u;
+  document.querySelectorAll('.unit-btn').forEach(b => b.classList.toggle('active', b.dataset.unit === u));
+  const input = document.getElementById('heightInput');
+  input.placeholder = u === 'cm' ? '168' : '5.6';
+}
+
+async function analysePhoto() {
+  if (!uploadedFile) return;
+
+  const zone = document.getElementById('uploadZone');
+  const analyseBtn = document.getElementById('analyseBtn');
+  analyseBtn.disabled = true;
+
+  // Create scan overlay
+  const overlay = document.createElement('div');
+  overlay.className = 'scan-overlay';
+  overlay.innerHTML = `
+    <div class="scan-status" id="scanStatus"></div>
+    <div class="scan-bar"><div class="scan-bar-fill" id="scanBarFill"></div></div>
+  `;
+  zone.style.position = 'relative';
+  zone.appendChild(overlay);
+
+  const steps = S('scanSteps');
+  const barFill = overlay.querySelector('#scanBarFill');
+  const statusEl = overlay.querySelector('#scanStatus');
+
+  for (let i = 0; i < steps.length; i++) {
+    statusEl.textContent = steps[i];
+    barFill.style.width = `${((i + 1) / steps.length) * 100}%`;
+    await delay(900);
+  }
+
+  await delay(400);
+  overlay.remove();
+
+  // Get height
+  let heightCm = 168;
+  const heightVal = parseFloat(document.getElementById('heightInput').value);
+  if (heightVal) {
+    heightCm = heightUnit === 'ft' ? heightVal * 30.48 : heightVal;
+  }
+
+  // Simulate proportional estimation from 168cm base
+  const scale = heightCm / 168;
+  const bust = Math.round((87 + (Math.random() * 8 - 4)) * scale);
+  const waist = Math.round((76 + (Math.random() * 8 - 4)) * scale);
+  const hips = Math.round((99 + (Math.random() * 8 - 4)) * scale);
+  const underbust = Math.round((74 + (Math.random() * 6 - 3)) * scale);
+
+  // Determine size
+  const size = determineSize(bust, waist, hips);
+
+  // Show result
+  document.getElementById('photoSize').textContent = size;
+  document.getElementById('photoConfidence').textContent = S('confidence');
+
+  // Proportion bars
+  const barsContainer = document.getElementById('proportionBars');
+  const maxVal = 120;
+  barsContainer.innerHTML = [
+    { label: S('bust'), value: bust },
+    { label: S('underbust'), value: underbust },
+    { label: S('waist'), value: waist },
+    { label: S('hips'), value: hips }
+  ].map(item => `
+    <div class="proportion-bar-row">
+      <div class="proportion-bar-label">${item.label}</div>
+      <div class="proportion-bar-track">
+        <div class="proportion-bar-fill" style="width: ${(item.value / maxVal) * 100}%"></div>
+      </div>
+      <div class="proportion-bar-value">${item.value} cm</div>
+    </div>
+  `).join('');
+
+  // Notes
+  const notesContainer = document.getElementById('photoNotes');
+  notesContainer.innerHTML = S('photoNotes').map(n => `<div class="photo-note">${n}</div>`).join('');
+
+  document.getElementById('photoResult').classList.add('active');
+  analyseBtn.style.display = 'none';
+
+  // Highlight table
+  highlightSize(size);
+}
+
+function determineSize(bust, waist, hips) {
+  const sizes = [
+    { name: 'XS', bust: [80, 84], waist: [69, 73], hips: [92, 96] },
+    { name: 'S', bust: [85, 89], waist: [74, 78], hips: [97, 101] },
+    { name: 'M', bust: [90, 94], waist: [79, 83], hips: [102, 106] },
+    { name: 'L', bust: [95, 99], waist: [84, 88], hips: [107, 111] }
+  ];
+
+  let bestSize = 'M';
+  let bestScore = Infinity;
+
+  for (const s of sizes) {
+    const bustMid = (s.bust[0] + s.bust[1]) / 2;
+    const waistMid = (s.waist[0] + s.waist[1]) / 2;
+    const hipsMid = (s.hips[0] + s.hips[1]) / 2;
+    const score = Math.abs(bust - bustMid) + Math.abs(waist - waistMid) + Math.abs(hips - hipsMid);
+    if (score < bestScore) {
+      bestScore = score;
+      bestSize = s.name;
+    }
+  }
+
+  return bestSize;
+}
+
+function resetPhoto() {
+  uploadedFile = null;
+  const zone = document.getElementById('uploadZone');
+  zone.innerHTML = `
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(0,0,0,0.35)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="17 8 12 3 7 8"/>
+      <line x1="12" y1="3" x2="12" y2="15"/>
+    </svg>
+    <div class="upload-zone-title" id="uploadTitle">${S('uploadTitle')}</div>
+    <div class="upload-zone-sub" id="uploadSub">${S('uploadSub')}</div>
+    <div class="upload-tips" id="uploadTips"><ul>${S('uploadTips').map(t => '<li>' + t + '</li>').join('')}</ul></div>
+  `;
+  document.getElementById('fileInput').value = '';
+  document.getElementById('heightInput').value = '';
+  document.getElementById('analyseBtn').disabled = true;
+  document.getElementById('analyseBtn').style.display = '';
+  document.getElementById('photoResult').classList.remove('active');
+  highlightSize('');
+}
+
+// ============================================================
+// Helpers
+// ============================================================
+function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function escapeHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+// ============================================================
+// Init
+// ============================================================
+setLang(lang);
+
+// Auto-open for standalone testing (remove in production)
+openModal();
+</script>
+
+<!-- ============================================================
+     FRAMER INTEGRATION SNIPPETS
+     ============================================================
+
+     1. HTML EMBED — paste into a Framer HTML Embed component:
+     ────────────────────────────────────────────────────────────
+     <iframe
+       id="merie-jumpsuit-size-guide"
+       src="https://YOUR-VERCEL-DOMAIN.vercel.app"
+       style="position:fixed;inset:0;width:100%;height:100%;border:none;z-index:9999;pointer-events:none;"
+       allow="clipboard-write"
+     ></iframe>
+
+     2. BUTTON onClick — open the modal from any Framer button:
+     ────────────────────────────────────────────────────────────
+     document.getElementById('merie-jumpsuit-size-guide').style.pointerEvents = 'auto';
+     document.getElementById('merie-jumpsuit-size-guide').contentWindow.postMessage({ type: 'OPEN_JUMPSUIT_SIZE_GUIDE' }, '*');
+
+     3. PARENT LISTENER — paste into a Framer Code Override or
+        another HTML Embed to handle close and reset pointer-events:
+     ────────────────────────────────────────────────────────────
+     <script>
+       window.addEventListener('message', function(e) {
+         if (e.data && e.data.type === 'SIZE_GUIDE_CLOSED') {
+           document.getElementById('merie-jumpsuit-size-guide').style.pointerEvents = 'none';
+         }
+       });
+     </script>
+
+     ============================================================ -->
+</body>
+</html>
