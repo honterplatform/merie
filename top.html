@@ -1124,6 +1124,7 @@ function openModal() {
 function closeModal() {
   document.getElementById('backdrop').classList.remove('open');
   window.parent.postMessage({ type: 'TOP_SIZE_GUIDE_CLOSED' }, '*');
+  if (window === window.parent) history.back();
 }
 
 document.getElementById('backdrop').addEventListener('click', closeModal);
